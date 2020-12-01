@@ -1,0 +1,23 @@
+{
+  "name": "midrusfront",
+  "version": "1.0.0",
+  "description": "midrus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olgasem10/MidRusFront.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olgasem10/MidRusFront/issues"
+  },
+  "homepage": "https://github.com/olgasem10/MidRusFront#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1"
+  }
+}
