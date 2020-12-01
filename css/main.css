@@ -1,0 +1,44 @@
+.red {
+    /*border: solid 1px red;*/
+}
+
+.container {
+    margin-top: 50px;
+}
+.row {
+    margin: 10px;
+}
+.big-logo {
+    margin-right: 30px;
+}
+.top-nav {
+    font-size: 1.3rem;
+}
+
+.descriptor {
+    margin-left: 160px;
+}
+
+.main-head {
+    font-weight: 500;
+}
+
+.my-form {
+    
+    border: solid 5px;
+    border-color: #7ecbc6;
+    padding: 30px 10px 30px 20px;
+}
+
+.forform {
+    padding: 0px;
+}
+
+.file-input {
+    padding: 20px 0px 5px 0px;
+}
+
+.btn-lg {
+    background-color: #7ecbc6;
+    border: 0px;
+}
