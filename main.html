@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <title>Hello, world!</title>
+    <title>MidRUS</title>
   </head>
   <body>
-    <div class="container red shadow-lg">
+    <div class="container red shadow-lg rounded">
         <div class="row red">
             <div class="col red">
               <img src="images/logo.png" class="float-left big-logo" alt="logo" height="110">
@@ -36,7 +36,9 @@
         </div>
 
         <div class="row red">
+          <div class="col red">
             <h2 class="descriptor">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+          </div>
         </div>
 
         <div class="row red">
@@ -69,37 +71,37 @@
         </div>
 
         <div class="row red">
+          <div class="col red">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ввести текст</a>
+                  <a class="nav-link active" id="textinput-tab" data-toggle="tab" href="#textinput" role="tab" aria-controls="textinput" aria-selected="true">Ввести текст</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Загрузить файл</a>
+                  <a class="nav-link" id="file-tab" data-toggle="tab" href="#file" role="tab" aria-controls="file" aria-selected="false">Загрузить файл</a>
               </ul>
+            </div>
         </div>
-        <div class="row red">
-            <div class="col red forform">
 
+        <div class="row red">
+            <div class="col red">
               <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    
-                    <input type="text" class="form-control my-form" placeholder="Введите текст для разметки">
-                    
-                    
+                <div class="tab-pane fade show active" id="textinput" role="tabpanel" aria-labelledby="textinput-tab">
+                  <textarea class="form-control my-form" id="exampleFormControlTextarea1" rows="7" placeholder="Введите текст для разметки"></textarea>     
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form class="file-input">
-                        <div class="form-group">
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
-                      </form>
+
+                <div class="tab-pane fade" id="file" role="tabpanel" aria-labelledby="file-tab">
+                  <form class="file-input">
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                  </form>
                 </div>     
               </div>
             </div>
         </div>
         <div class="row red">
             <div class="col red">
-                <button type="button" class="btn btn-info btn-lg">Разметить текст</button>
+                <button type="button" class="btn btn-info btn-lg" id="markup_bt">Разметить текст</button>
             </div>
             <div class="col red">
                 <div class="form-check form-check-inline">
@@ -112,6 +114,76 @@
                   </div>
             </div>
 
+        </div>
+
+        <div class="row red first-hidden">
+          <div class="col red">
+            <ul class="nav nav-tabs try" id="myTab2" role="tablist" hidden>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="markup-tab" data-toggle="tab" href="#markup" role="tab" aria-controls="markup" aria-selected="true">
+                  Markup format
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="conllu-tab" data-toggle="tab" href="#conllu" role="tab" aria-controls="conllu" aria-selected="false">
+                  CoNLL-U format
+                </a>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red ">
+            <div class="tab-content try" id="myTab2Content" hidden>
+              <div class="tab-pane fade show active" id="markup" role="tabpanel" aria-labelledby="markup-tab">
+                <p class="my-output">Здесь будет обработанный текст <br>
+                  Aenean viverra erat vel lectus pretium rhoncus. Nullam sollicitudin justo ut
+                  ex vehicula, sit amet ornare eros molestie. Morbi euismod enim at lectus
+                  ultricies, a aliquam massa viverra. Donec vulputate rhoncus massa.
+                  Pellentesque lorem in ex laoreet pharetra. Donec ullamcorper
+                  ipsum tellus, vitae luctus felis interdum a. Phasellus sed massa vitae est
+                  lacinia iaculis. Nulla lacinia urna a faucibus ullamcorper. Etiam sodales
+                  gravida finibus. Vivamus iaculis a purus non interdum. Donec blandit est
+                  vitae risus aliquet, nec fermentum diam vulputate. Morbi dictum orci
+                  mattis, facilisis mi fringilla, porta ligula. In hac habitasse platea dictumst.
+                  Fusce nec eleifend nisl. Vestibulum pretium, risus ut porta lacinia, velit erat
+                  rhoncus elit, et rutrum tellus lectus eget sapien. Sed feugiat tempus lacus.
+                </p>     
+              </div>
+
+              <div class="tab-pane fade" id="conllu" role="tabpanel" aria-labelledby="conllu-tab">
+                <p class="my-output">Здесь будет обработанный текст в формате conllu <br>
+                  Aenean viverra erat vel lectus pretium rhoncus. Nullam sollicitudin justo ut
+                  ex vehicula, sit amet ornare eros molestie. Morbi euismod enim at lectus
+                  ultricies, a aliquam massa viverra. Donec vulputate rhoncus massa.
+                  Pellentesque lorem in ex laoreet pharetra. Donec ullamcorper
+                  ipsum tellus, vitae luctus felis interdum a. Phasellus sed massa vitae est
+                  lacinia iaculis. Nulla lacinia urna a faucibus ullamcorper. Etiam sodales
+                  gravida finibus. Vivamus iaculis a purus non interdum. Donec blandit est
+                  vitae risus aliquet, nec fermentum diam vulputate. Morbi dictum orci
+                  mattis, facilisis mi fringilla, porta ligula. In hac habitasse platea dictumst.
+                  Fusce nec eleifend nisl. Vestibulum pretium, risus ut porta lacinia, velit erat
+                  rhoncus elit, et rutrum tellus lectus eget sapien. Sed feugiat tempus lacus.
+                </p>
+              </div>     
+            </div>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red ">
+            <button type="button" class="btn btn-info btn-lg try" id="download-bt" hidden>Скачать размеченный текст</button>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red ">
+            <footer class="my-footer rounded shadow">
+              <p>
+                (c) MidRus team, 2020
+              </p>
+            </footer>
+          </div>
         </div>
 
     </div>
