@@ -1,0 +1,60 @@
+.red {
+    /*border: solid 1px red;*/
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.row {
+    margin: 10px 0px 10px 0px;
+}
+.big-logo {
+    margin-right: 30px;
+}
+.top-nav {
+    font-size: 1.3rem;
+}
+
+
+.main-head {
+    font-weight: 500;
+}
+
+.my-form {    
+    border: solid 5px;
+    border-color: #7ecbc6;
+    padding: 20px 10px 20px 20px;
+}
+
+.file-input {
+    padding: 20px 0px 5px 0px;
+}
+
+.btn-lg {
+    background-color: #7ecbc6;
+    border: 0px;
+}
+
+.form-check-inline {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.my-output {
+    border: solid 5px;
+    border-color: #7ecbc6;
+    border-radius: 5px;
+    padding: 20px 10px 20px 20px;
+    background-color: #f8f9fa;
+}
+
+.my-footer {
+    background-color: #f8f9fa;
+    padding: 20px 20px 10px 20px;
+}
+.first-hidden {
+    padding-top: 20px;
+}

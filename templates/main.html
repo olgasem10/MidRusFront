@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+
+    <title>MidRUS</title>
+  </head>
+  <body>
+    <div class="container red shadow-lg rounded">
+        <div class="row red">
+            <div class="col red">
+              
+              <img src="{{ url_for('static',filename='images/logo.png') }}" class="float-left big-logo" alt="logo" height="110">
+
+              <h1 class="display-2 main-head">MidRUS</h1>
+            </div>
+
+            <div class="col red">
+              <ul class="nav float-right top-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="/">Главная</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/api_docs">API documentation</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+
+        <div class="row red">
+          <div class="col red">
+            <h2 class="descriptor">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+          </div>
+        </div>
+
+        <div class="row red">
+            <div class="col red">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat
+                    vel velit finibus maximus. Mauris maximus ante in quam sagittis,
+                    pellentesque varius velit molestie. Ut sit amet mauris leo. Vestibulum ac
+                    neque quis libero dignissim rutrum. Etiam lacus odio, dictum nec magna
+                    a, ullamcorper malesuada turpis. Nam sit amet viverra tellus. Vestibulum
+                    non auctor odio. Donec quis turpis massa. Vestibulum ante ipsum primis
+                    in faucibus orci luctus et ultrices posuere cubilia curae; Quisque eleifend
+                    arcu vitae velit viverra, id lobortis lacus consequat. Ut aliquam pretium
+                    neque, eu pharetra urna semper ac. Aliquam eu massa quis orci vehicula
+                    tincidunt.
+                </p>
+            </div>
+            <div class="col red">
+                <p> Ut lobortis auctor sem, ullamcorper hendrerit nisi vestibulum a. Aenean
+                    feugiat nisi neque, ut faucibus leo ultricies ac. Maecenas aliquam finibus
+                    efficitur. Sed nec vestibulum metus. Maecenas consectetur vitae nunc
+                    vitae pharetra. Nullam congue blandit accumsan. Pellentesque habitant
+                    morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    Morbi orci nisi, malesuada sed aliquet a, semper eget nisl. Nullam ornare
+                    sed libero et venenatis. Nunc nec aliquam leo. Mauris a aliquet augue,
+                    sed feugiat libero. Morbi imperdiet purus ut orci vehicula posuere. Donec
+                    massa sem, dictum vitae nulla quis, maximus tincidunt justo. Cras
+                    maximus leo sed lorem tempus pretium.
+                </p>
+            </div>
+        </div>
+
+        <div class="row red">
+          <div class="col red">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="textinput-tab" data-toggle="tab" href="#textinput" role="tab" aria-controls="textinput" aria-selected="true">Ввести текст</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="file-tab" data-toggle="tab" href="#file" role="tab" aria-controls="file" aria-selected="false">Загрузить файл</a>
+              </ul>
+            </div>
+        </div>
+
+        <div class="row red">
+            <div class="col red">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="textinput" role="tabpanel" aria-labelledby="textinput-tab">
+                  <form method="POST" action="/upload_text">
+                  <textarea class="form-control my-form" id="exampleFormControlTextarea1" name = "text_input" rows="7" placeholder="Введите текст для разметки"></textarea>
+                  <br>
+                  <button type="submit" class="btn btn-info btn-lg" id="markup_bt">Разметить текст</button>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="tokenization" value="1">
+                    <label class="form-check-label" for="inlineCheckbox1">Токенизировать</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="lemmatisation" value="2">
+                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать</label>
+                  </div>
+                </form>
+
+                </div>
+
+                <div class="tab-pane fade" id="file" role="tabpanel" aria-labelledby="file-tab">
+                  <form class="file-input" method="POST" action="/upload_file" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file_input">
+                    </div>
+
+                    <br>
+                  <button type="submit" class="btn btn-info btn-lg" id="markup_bt">Разметить текст</button>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="tokenization" value="1">
+                    <label class="form-check-label" for="inlineCheckbox1">Токенизировать</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="lemmatisation" value="2">
+                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать</label>
+                  </div>
+                  </form>
+                </div>     
+              </div>
+            </div>
+        </div>
+
+
+        <div class="row red first-hidden">
+          <div class="col red">
+            <ul class="nav nav-tabs try" id="myTab2" role="tablist" {{hidden_state}}>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="markup-tab" data-toggle="tab" href="#markup" role="tab" aria-controls="markup" aria-selected="true">
+                  Markup format
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="conllu-tab" data-toggle="tab" href="#conllu" role="tab" aria-controls="conllu" aria-selected="false">
+                  CoNLL-U format
+                </a>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red ">
+            <div class="tab-content try" id="myTab2Content" {{hidden_state}}>
+              <div class="tab-pane fade show active" id="markup" role="tabpanel" aria-labelledby="markup-tab">
+                <p class="my-output">
+                  {% for word in markup_text %}
+                  <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="{{word['word']}}" 
+                  data-content="<b>Лемма</b>: {{word['lemma']}} <br><b>POS</b>: {{word['POS']}} <br><b>features</b>: {{word['features']}}" data-html="true">
+                  {{word['word']}}
+                  </a>
+                  
+                  {% endfor %}
+
+                </p>     
+              </div>
+
+              <div class="tab-pane fade" id="conllu" role="tabpanel" aria-labelledby="conllu-tab">
+                
+                  <pre class="my-output">{{output_text}}</pre>
+                
+              </div>     
+            </div>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red container" >
+
+            <a href="/download_file" target="blank">
+            <button type="button" class="btn btn-info btn-lg try" id="download-bt" {{hidden_state}}>Скачать размеченный текст</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="row red ">
+          <div class="col red ">
+            <footer class="my-footer rounded shadow">
+              <p>
+                (c) MidRus team, 2020
+              </p>
+            </footer>
+          </div>
+        </div>
+
+    </div>
+    
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <!-- <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>-->
+    
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    
+
+    <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script>
+    
+    
+
+    
+
+  </body>
+</html>
