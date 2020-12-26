@@ -11,7 +11,7 @@ def home():
 
 @app.route('/upload_text', methods = ['POST', 'GET'])
 def upload_text():
-    url = 'http://127.0.0.1:7000/processing'
+    url = 'http://host.docker.internal:7000/processing'
     text = request.form['text_input']
     toks = False
     lemmas = False
@@ -34,7 +34,7 @@ def upload_text():
 
 @app.route('/upload_file', methods = ['POST', 'GET'])
 def upload_file():
-    url = 'http://127.0.0.1:7000/processing'
+    url = 'http://host.docker.internal:7000/processing'
     uploaded_file = request.files['file_input']
     text = uploaded_file.read().decode('utf-8')
     toks = False
@@ -73,4 +73,4 @@ def api_docs():
 
 
 if __name__ == '__main__':
-    app.run(port=8000, debug=True)
+    app.run(port=8000, host='0.0.0.0', debug=True)

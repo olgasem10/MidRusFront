@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  midrus-api:
+    build: ./app
+    #image: midrus-api:latest
+    ports:
+      - '7000:7000'
+
+  midrus-web:
+    build: .
+    #image: midrus-web:latest
+    ports:
+      - '8000:8000'
