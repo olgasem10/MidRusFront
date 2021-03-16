@@ -118,7 +118,7 @@ def tag_text(text, model1, model2, toks, lemmas):
                 model1.tag(s)
             result = model1.write(sentences, 'conllu')
         except:
-            result = 'Вы ввели текст не в формате conllu!'
+            result = 'Вы ввели текст не в формате conllu! Если ваш текст нужно предварительно токенизировать, перед отправкой выберите пункт "Текст нуждается в токенизации"'
         return result
 
     # Токенизировать, но не лемматизировать
@@ -141,7 +141,7 @@ def tag_text(text, model1, model2, toks, lemmas):
             tagged = model1.write(sentences, 'conllu')
             result = output(lemmatized, tagged)
         except:
-            result = 'Вы ввели текст не в формате conllu!'
+            result = 'Вы ввели текст не в формате conllu! Если ваш текст нужно предварительно токенизировать, перед отправкой выберите пункт "Текст нуждается в токенизации"'
         return result
 
 

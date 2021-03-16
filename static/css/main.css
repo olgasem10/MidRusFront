@@ -51,6 +51,15 @@
     background-color: #f8f9fa;
 }
 
+
+.my-example {
+    border: solid 5px;
+    border-color: #7ecbc6;
+    border-radius: 5px;
+    padding: 20px 10px 20px 20px;
+    background-color: #f8f9fa;
+}
+
 .my-footer {
     background-color: #f8f9fa;
     padding: 20px 20px 10px 20px;

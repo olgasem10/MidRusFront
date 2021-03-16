@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">    
     <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
 
+    <link rel="icon" href="{{ url_for('static',filename='images/logo.png') }}">
+
     <title>MidRUS</title>
   </head>
   <body>
@@ -44,27 +46,80 @@
 
         <div class="row red">
             <div class="col red">
-                <p> MidRus NLP is a service for Middle Russian pos- and morphological tagging and tokenization based on UDPipe trainable pipeline. 
-
-                  Description of the project as well as API methods is available on the About and the API Documentation web pages. 
+                <p> 
                   
-                  In order to markup your text you can either copy it into the text area below or upload it in the CoNLL-U format.
+                  С помощью нашего сервиса вы можете осуществить морфологическую и POS-разметку текстов на древнерусском языке.
+                  <br>
+                  Чтобы разметить текст, введите его в поле ниже или загрузите файл с текстом в формате .txt
+                  <br>
+                  
+                  <br>
+                  Текст для разметки должен быть либо в формате CoNLL-U, либо в виде обычного не токенизированного текста.
+                  <br>
+                  Если ваш текст нуждается в предварительной токенизации, выберите опцию "Текст нуждается в токенизации".
+                  <br>
+                  Если помимо POS и морфологической разметки вы также хотите лемматизировать текст, выберите опцию "Лемматизировать текст".
+                  <br>
+                  Для ознакомления с работой сервиса вы можете воспользоваться примерами текста (скопируйте примеры и введите их в текстовое поле).
+                  
+
+                  
                   
                 </p>
             </div>
-            <!--<div class="col red">
-                <p> Ut lobortis auctor sem, ullamcorper hendrerit nisi vestibulum a. Aenean
-                    feugiat nisi neque, ut faucibus leo ultricies ac. Maecenas aliquam finibus
-                    efficitur. Sed nec vestibulum metus. Maecenas consectetur vitae nunc
-                    vitae pharetra. Nullam congue blandit accumsan. Pellentesque habitant
-                    morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Morbi orci nisi, malesuada sed aliquet a, semper eget nisl. Nullam ornare
-                    sed libero et venenatis. Nunc nec aliquam leo. Mauris a aliquet augue,
-                    sed feugiat libero. Morbi imperdiet purus ut orci vehicula posuere. Donec
-                    massa sem, dictum vitae nulla quis, maximus tincidunt justo. Cras
-                    maximus leo sed lorem tempus pretium.
+          </div>
+
+            <div class="row red">
+
+              <div class="col red">
+                <p>
+                  Пример не токенизированного текста:
                 </p>
-            </div>-->
+                <p class="my-output">
+                  <br>
+                  Божіею милостію мы Великій Государь Царь и Великій Князь Алексій Михайловичь всея великия и малыя Россіи Самодержецъ
+                  <br>
+                <br>
+                </p>
+                
+                <br>
+                
+
+                <div class="alert alert-info" role="alert">
+                  <br>
+                  Размер загружаемого файла не должен превышать 5000 Кб!  На обработку больших файлов требуется время!
+                  <br>
+                  <br>
+                </div>
+                            </div>
+
+            <div class="col red">
+              
+              <p>
+                Пример текста в формате CoNLL-U:
+              </p>
+                <pre class="my-output" style="font-size: 0.7em">
+1	Божіею	_	_	_	_	_	_	_	_
+2	милостію	_	_	_	_	_	_	_	_
+3	мы	_	_	_	_	_	_	_	_
+4	Великій	_	_	_	_	_	_	_	_
+5	Государь	_	_	_	_	_	_	_	_
+6	Царь	_	_	_	_	_	_	_	_
+7	и	_	_	_	_	_	_	_	_
+8	Великій	_	_	_	_	_	_	_	_
+9	Князь	_	_	_	_	_	_	_	_
+10	Алексій	_	_	_	_	_	_	_	_
+11	Михайловичь	_	_	_	_	_	_	_	_
+12	всея	_	_	_	_	_	_	_	_
+13	великия	_	_	_	_	_	_	_	_
+14	и	_	_	_	_	_	_	_	_
+15	малыя	_	_	_	_	_	_	_	_
+16	Россіи	_	_	_	_	_	_	_	_
+17	Самодержецъ	_	_	_	_	_	_	_	_
+18	.	_	_	_	_	_	_	_	_
+</pre>
+</div>
+
         </div>
 
         <div class="row red">
@@ -90,12 +145,12 @@
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="tokenization" value="1">
-                    <label class="form-check-label" for="inlineCheckbox1">Токенизировать</label>
+                    <label class="form-check-label" for="inlineCheckbox1">Текст нуждается в токенизации</label>
                   </div>
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="lemmatisation" value="2">
-                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать</label>
+                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать текст</label>
                   </div>
                 </form>
 
@@ -112,12 +167,12 @@
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="tokenization" value="1">
-                    <label class="form-check-label" for="inlineCheckbox1">Токенизировать</label>
+                    <label class="form-check-label" for="inlineCheckbox1">Текст нуждается в токенизации</label>
                   </div>
 
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="lemmatisation" value="2">
-                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать</label>
+                    <label class="form-check-label" for="inlineCheckbox2">Лемматизировать текст</label>
                   </div>
                   </form>
                 </div>     
@@ -146,7 +201,16 @@
           <div class="col red ">
             <div class="tab-content try" id="myTab2Content" {{hidden_state}}>
               <div class="tab-pane fade show active" id="markup" role="tabpanel" aria-labelledby="markup-tab">
+                <p>Нажмите на слово, чтобы увидеть разметку!</p>
                 <p class="my-output">
+
+                   <!--{{markup_text}}-->
+
+                 
+
+                  {% if 'Вы ввели текст не в формате conllu!' in markup_text %}
+                  Вы ввели текст не в формате conllu! Если ваш текст нужно предварительно токенизировать, перед отправкой выберите пункт "Текст нуждается в токенизации"
+                  {% endif %}
                   {% for word in markup_text %}
                   <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="{{word['word']}}" 
                   data-content="<b>Лемма</b>: {{word['lemma']}} <br><b>POS</b>: {{word['POS']}} <br><b>features</b>: {{word['features']}}" data-html="true">
@@ -154,6 +218,8 @@
                   </a>
                   
                   {% endfor %}
+
+                
 
                 </p>     
               </div>

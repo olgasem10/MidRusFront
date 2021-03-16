@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
 
+    <link rel="icon" href="{{ url_for('static',filename='images/logo.png') }}">
+
     <title>MidRUS</title>
   </head>
   <body>
@@ -53,14 +55,15 @@
         <div class="row red">
           <div class="col red">
             <h2 class="descriptor">API Reference</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat
-                vel velit finibus maximus. Mauris maximus ante in quam sagittis,
-                pellentesque varius velit molestie.
+            <p>
+              In order to use API one should send http POST request on address *actual address should be here* along with json-file of following format:<br>
+              {'input_text': text, 'tokenization': True, 'lemmatisation': True} <br>where values for keys 'tokenization' and 'lemmatisation' are either True or False 
+              depending on wethere you want to use this functions or not and value for 'text is text data for tagging.
             </p>
           </div>
         </div>
 
-        <table class="table table-striped">
+        <!-- <table class="table table-striped">
           <tbody>
             <thead>
               <tr>
@@ -80,19 +83,23 @@
               <td>Quisque</td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
 
         <div class="row red">
           <div class="col red">
-            <h3 class="descriptor">Method models</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat
-                vel velit finibus maximus. Mauris maximus ante in quam sagittis,
-                pellentesque varius velit molestie.
-            </p>
             <h3 class="descriptor">Example</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat
-                vel velit finibus maximus.
+            <p>Usage example for Python
             </p>
+            <img src="{{ url_for('static',filename='images/Example.png') }}" alt="python example" height="180">
+            <p></p>
+            <h3 class="descriptor">Method models</h3>
+            <p>Our API uses two separate models both based on UDPipe version 1.2.1. <br>
+              Tokenization and lemmatization are done with the model, trained on the collection extracted from the RNC Mid-Russian Corpus. This collection contains ~300k tokens. 
+              The Majority of douments are dated to 17th century, but nearly one third of the collection is documents from the 14-16 cc.<br>
+              For morphological and pos-tagging our API uses the UDPipe model, trained on 6,5% of the whole RNC Mid-Russian Corpus (~846k tokens). 
+              This model has shown outstanding performance on these particular tasks, outperforming the larger model by almost 35%. POS-tag F1: 96.65%, Feats F1: 89.58%
+            </p>
+            
           </div>
         </div>
 

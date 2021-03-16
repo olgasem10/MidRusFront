@@ -4,6 +4,16 @@ from markup import for_markup
 
 app = Flask(__name__)
 
+app.config['MAX_CONTENT_LENGTH'] = 5000 * 1024
+ALLOWED_EXTENSIONS = {'txt'}
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+
 @app.route('/')
 def home():
     return render_template('main.html', hidden_state = 'hidden')
@@ -22,6 +32,7 @@ def upload_text():
     json_text = {'input_text': text, 'tokenization': toks, 'lemmatisation': lemmas}
     
     response = requests.post(url, json=json_text)
+    
     markup_text = for_markup(response.json()['output_text'])
 
     with open('data/doc.txt', 'w', encoding = 'utf-8') as f:
@@ -36,6 +47,10 @@ def upload_text():
 def upload_file():
     url = 'http://host.docker.internal:7000/processing'
     uploaded_file = request.files['file_input']
+    
+    if not allowed_file(uploaded_file.filename):
+        return render_template('error.html', error = 'Вы загрузили файл не в формате txt!')
+    
     text = uploaded_file.read().decode('utf-8')
     toks = False
     lemmas = False
@@ -55,6 +70,11 @@ def upload_file():
         f.write(response.json()['output_text'])
 
     return render_template('main.html', hidden_state = '', markup_text = markup_text, output_text = response.json()['output_text'])
+
+
+@app.errorhandler(413)
+def error413(e):
+    return render_template('error.html', error = 'Вы пытаетесь загрузить слишком большой файл!')
 
 
 @app.route('/download_file')
