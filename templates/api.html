@@ -29,10 +29,10 @@
                   <a class="nav-link active" href="/">Главная</a>
                 </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="/about">About</a>
+                  <a class="nav-link" href="/about">О проекте</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/api_docs">API documentation</a>
+                  <a class="nav-link" href="/api_docs">API</a>
                 </li>
               </ul>
             </div>
@@ -41,13 +41,12 @@
         <!-- Content -->
         <div class="row red">
             <div class="col red">
-                <p> The web service is freely available.
-                  If you use the service, you agree that data obtained by us during such use can be used for further improvements of the system.
-                  All comments and reactions are welcome.
+                <p> Веб-сервис MidRus NLP находится в открытом доступе.
+                  Пользуясь сервисом MidRus NLP, вы соглашаетесь с тем, что полученные нами данные могут быть использованы для дальнейшего улучшения сервиса. Отзывы и пожелания приветсвуются.  
                 </p>
                 <p>
-
-                The MidRus NLP REST API can be accessed directly or via any other web programming tools that support standard HTTP request methods and JSON for output handling.
+                  Обращение к MidRus API осуществляется через веб-сервис, 
+                  а также через любой инструмент веб-разработки, поддерживающий стандартные HTTP запросы и обработку документов в формате JSON.
                 </p>
               </div>
           </div>
@@ -56,9 +55,10 @@
           <div class="col red">
             <h2 class="descriptor">API Reference</h2>
             <p>
-              In order to use API one should send http POST request on address *actual address should be here* along with json-file of following format:<br>
-              {'input_text': text, 'tokenization': True, 'lemmatisation': True} <br>where values for keys 'tokenization' and 'lemmatisation' are either True or False 
-              depending on wethere you want to use this functions or not and value for 'text is text data for tagging.
+              Для использования API необходимо отправить POST запрос на адресс *~~~~~* вместе с json-файлом формата:<br>
+              {'input_text': text, 'tokenization': True, 'lemmatisation': True},
+              где значения для 'tokenization' и 'lemmatisation' могут быть True или False в зависимости от того, требуется ли пользователю токенизация/лемматизация или нет.
+              
             </p>
           </div>
         </div>
@@ -87,17 +87,19 @@
 
         <div class="row red">
           <div class="col red">
-            <h3 class="descriptor">Example</h3>
-            <p>Usage example for Python
+            <h3 class="descriptor">Пример использования</h3>
+            <p>Пример использования для языка Python
             </p>
             <img src="{{ url_for('static',filename='images/Example.png') }}" alt="python example" height="180">
             <p></p>
-            <h3 class="descriptor">Method models</h3>
-            <p>Our API uses two separate models both based on UDPipe version 1.2.1. <br>
-              Tokenization and lemmatization are done with the model, trained on the collection extracted from the RNC Mid-Russian Corpus. This collection contains ~300k tokens. 
-              The Majority of douments are dated to 17th century, but nearly one third of the collection is documents from the 14-16 cc.<br>
-              For morphological and pos-tagging our API uses the UDPipe model, trained on 6,5% of the whole RNC Mid-Russian Corpus (~846k tokens). 
-              This model has shown outstanding performance on these particular tasks, outperforming the larger model by almost 35%. POS-tag F1: 96.65%, Feats F1: 89.58%
+            <h3 class="descriptor">Модели</h3>
+            <p>В работе API MidRusNLP используется две UDPipe-модели.
+              Токенизация и лемматизация производится с помощью модели, обученной на коллекции данных объёмом примерно в 300 тыс. токенов.
+              Большая часть документов выборки относится к 17 веку, однако треть данных представляет собой документы 14-16 веков, написанных на церковнославянском.
+              Морфологическая и частеречная разметка осуществляется с помощью отдельной модели, обученной на 6,5% всего Среднерусского корпуса НКРЯ (объём около 846 тыс. токенов).
+              Эта модель продемонстрировала отличные результаты на задачах морфологической и частеречной разметки, превысив показатели более объёмных моделей на 35%.
+              <br>Метрики модели:
+              POS-tag F1: 96.65%, Feats F1: 89.58%
             </p>
             
           </div>
